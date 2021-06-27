@@ -50,4 +50,9 @@ router.post('/users/signup', async(req, res) => {
     }
 });
 
+router.get('/users/logout', (req, res) => {
+    req.logout();
+    res.redirect('/');
+});
+
 module.exports = router;
