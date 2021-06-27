@@ -25,8 +25,7 @@ router.post("/notes/new-note", isAuthenticated, async(req, res) => {
     } else {
         const newNote = new Note({ title, description });
         console.log(newNote);
-        // res.send('OK' );
-        // newNote.user = req.user.id;
+        newNote.user = req.user.id;
         await newNote.save();
         req.flash("success_msg", "Note Added Successfully");
         res.redirect("/notes");
@@ -34,7 +33,7 @@ router.post("/notes/new-note", isAuthenticated, async(req, res) => {
 });
 
 router.get("/notes", isAuthenticated, async(req, res) => {
-    await Note.find().then((documentos) => {
+    await Note.find({ user: req.user.id }).then((documentos) => {
         const contexto = {
             notes: documentos.map((documento) => {
                 return {
