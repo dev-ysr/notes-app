@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/notes-db-app', {
+mongoose.connect('mongodb+srv://dbadmin:fncCpPbWXS6o8B@notes-db-app.9pync.mongodb.net/notes-db-app?retryWrites=true&w=majority', {
         useCreateIndex: true,
         useNewUrlParser: true,
         useFindAndModify: false,
