@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
@@ -5,6 +9,7 @@ const methodOverride = require('method-override');
 const sesion = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport')
+
 
 // Initializations
 const app = express();
